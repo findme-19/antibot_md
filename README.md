@@ -1,22 +1,17 @@
-# Games-Wabot
+# Games_AntiBot
 
-<a href="https://github.com/BochilGaming/games-wabot/network/members"><img title="Forks" src="https://img.shields.io/github/forks/BochilGaming/games-wabot?label=Forks&color=blue&style=flat-square"></a>
-<a href="https://github.com/BochilGaming/games-wabot/watchers"><img title="Watchers" src="https://img.shields.io/github/watchers/BochilGaming/games-wabot?label=Watchers&color=green&style=flat-square"></a>
-<a href="https://github.com/BochilGaming/games-wabot/stargazers"><img title="Stars" src="https://img.shields.io/github/stars/BochilGaming/games-wabot?label=Stars&color=yellow&style=flat-square"></a>
-<a href="https://github.com/BochilGaming/games-wabot/graphs/contributors"><img title="Contributors" src="https://img.shields.io/github/contributors/BochilGaming/games-wabot?label=Contributors&color=blue&style=flat-square"></a>
-<a href="https://github.com/BochilGaming/games-wabot/issues"><img title="Issues" src="https://img.shields.io/github/issues/BochilGaming/games-wabot?label=Issues&color=success&style=flat-square"></a>
-<a href="https://github.com/BochilGaming/games-wabot/issues?q=is%3Aissue+is%3Aclosed"><img title="Issues" src="https://img.shields.io/github/issues-closed/BochilGaming/games-wabot?label=Issues&color=red&style=flat-square"></a>
-<a href="https://github.com/BochilGaming/games-wabot/pulls"><img title="Pull Request" src="https://img.shields.io/github/issues-pr/BochilGaming/games-wabot?label=PullRequest&color=success&style=flat-square"></a>
-<a href="https://github.com/BochilGaming/games-wabot/pulls?q=is%3Apr+is%3Aclosed"><img title="Pull Request" src="https://img.shields.io/github/issues-pr-closed/BochilGaming/games-wabot?label=PullRequest&color=red&style=flat-square"></a>
-
-
-## Join Group Diskusi
-[![Grup WhatsApp](https://img.shields.io/badge/WhatsApp%20Group-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://chat.whatsapp.com/GVwpKf83s42D1CnIfDW19G) 
-**NO BOT**
+<a href="https://github.com/findme-19/antibot_md/network/members"><img title="Forks" src="https://img.shields.io/github/forks/findme-19/antibot_md?label=Forks&color=blue&style=flat-square"></a>
+<a href="https://github.com/findme-19/antibot_md/watchers"><img title="Watchers" src="https://img.shields.io/github/watchers/findme-19/antibot_md?label=Watchers&color=green&style=flat-square"></a>
+<a href="https://github.com/findme-19/antibot_md/stargazers"><img title="Stars" src="https://img.shields.io/github/stars/findme-19/antibot_md?label=Stars&color=yellow&style=flat-square"></a>
+<a href="https://github.com/findme-19/antibot_md/graphs/contributors"><img title="Contributors" src="https://img.shields.io/github/contributors/findme-19/antibot_md?label=Contributors&color=blue&style=flat-square"></a>
+<a href="https://github.com/findme-19/antibot_md/issues"><img title="Issues" src="https://img.shields.io/github/issues/findme-19/antibot_md?label=Issues&color=success&style=flat-square"></a>
+<a href="https://github.com/findme-19/antibot_md/issues?q=is%3Aissue+is%3Aclosed"><img title="Issues" src="https://img.shields.io/github/issues-closed/findme-19/antibot_md?label=Issues&color=red&style=flat-square"></a>
+<a href="https://github.com/findme-19/antibot_md/pulls"><img title="Pull Request" src="https://img.shields.io/github/issues-pr/findme-19/antibot_md?label=PullRequest&color=success&style=flat-square"></a>
+<a href="https://github.com/findme-19/antibot_md/pulls?q=is%3Apr+is%3Aclosed"><img title="Pull Request" src="https://img.shields.io/github/issues-pr-closed/findme-19/antibot_md?label=PullRequest&color=red&style=flat-square"></a>
 
 
 #### Deploy to Heroku
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/BochilGaming/games-wabot)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/findme-19/antibot_md)
 
 #### Heroku Buildpack
 | BuildPack | LINK |
@@ -27,13 +22,9 @@
 ### FOR TERMUX USER
 1. Type mentioned below given commands one by one in Termux.
 ```sh
-$ pkg upgrade && pkg update
-$ pkg install git -y
-$ pkg install nodejs -y
-$ pkg install ffmpeg -y
-$ pkg install imagemagick -y
-$ git clone https://github.com/BochilGaming/games-wabot -b multi-device
-$ cd games-wabot
+$ pkg upgrade && pkg update && pkg install git nodejs ffmpeg imagemagick nano bash mc -y
+$ git clone https://github.com/findme-19/antibot_md
+$ cd antibot_md
 $ npm i 
 $ node .
 ```
@@ -66,14 +57,14 @@ apt install wget curl git ffmpeg imagemagick build-essential libcairo2-dev libpa
 
 ---------
 
-[ INSTALLING NODEJS & GAMES-WABOT ]
+[ INSTALLING NODEJS & antibot_md ]
 
 ```bash
 ubuntu
 curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
 apt install -y nodejs gcc g++ make
-git clone https://github.com/BochilGaming/games-wabot
-cd games-wabot
+git clone https://github.com/findme-19/antibot_md
+cd antibot_md
 npm install
 npm update
 ```
@@ -88,8 +79,8 @@ npm update
 * Download And Install ImageMagick [`Click Here`](https://imagemagick.org/script/download.php)
 
 ```bash
-git clone https://github.com/BochilGaming/games-wabot
-cd games-wabot
+git clone https://github.com/findme-19/antibot_md
+cd antibot_md
 npm install
 npm update
 ```
@@ -207,7 +198,7 @@ conn.sendHydrated(m.chat, 'text', 'footer', 'buffer', null, null, null, null, [
 conn.sendHydrated(m.chat, 'text', 'footer', 'buffer', null, null, null, null, [
       ['Button¹', '/button¹'],
       ['Button²', '/button²'],
-      ['Button³', '/button³]
+      ['Button³', '/button³']
     ], m, {asLocation: true})
 ```
 
@@ -218,11 +209,6 @@ conn.sendHydrated(m.chat, 'text', 'footer', 'buffer', null, null, null, null, [
 
 [![Nurutomo](https://github.com/Nurutomo.png?size=100)](https://github.com/Nurutomo)
 [![BochilGaming](https://github.com/BochilGaming.png?size=100)](https://github.com/BochilGaming)
-
+[![Botstylee](https://github.com/Botstylee.png?size=100)](https://github.com/Botstylee)
 #### Contributor
-[![idhamthoriqbot](https://github.com/idhamthoriqbot.png?size=100)](https://github.com/idhamthoriqbot)
-[![zatu22](https://github.com/zatu22)](https://github.com/zatu22)
-[![Adiixyz](https://github.com/Adiixyz.png?size=100)](https://github.com/Adiixyz)
-[![Nobuyaki](https://github.com/Nobuyaki.png?size=100)](https://github.com/Nobuyaki)
-[![arisawali2014](https://github.com/arisawali2014.png?size=100)](https://github.com/arisawali2014)
-[![botstylee](https://github.com/botstylee)](https://github.com/botstylee)
+[![Botstylee](https://github.com/botstylee.png?size=100)](https://github.com/Botstylee)
