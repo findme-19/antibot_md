@@ -144,7 +144,7 @@ const {
 const connectionOptions = {
 	printQRInTerminal: true,
 	auth: state,
-	// logger: pino({ level: 'trace' })
+	logger: pino({ level: 'trace' })
 }
 
 global.conn = makeWASocket(connectionOptions)
