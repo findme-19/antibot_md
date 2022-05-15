@@ -78,6 +78,8 @@ export async function handler(chatUpdate) {
 					user.autolevelup = true
 				if (!('premium' in user))
 					user.premium = false
+				if (!('pasangan' in user))
+					user.pasangan = ''
 				if (!isNumber(user.expired))
 					user.expired = 0
 
@@ -248,7 +250,8 @@ export async function handler(chatUpdate) {
 					lastweekly: 0,
 					lastmonthly: 0,
 					premium: false,
-					expired: 0
+					expired: 0,
+					pasangan: ''
 				}
 			let chat = global.db.data.chats[m.chat]
 			if (typeof chat !== 'object')
@@ -444,8 +447,11 @@ export async function handler(chatUpdate) {
 		limit.hour = 23;
 		schedule.scheduleJob(limit, () => {
 			let useres = Object.keys(global.db.data.users)
-			for (let jid of useres) global.db.data.users[jid].limit = 10
-			console.log('Reseted Limit')
+			for (let jid of useres) {
+			global.db.data.users[jid].limit = 10
+			global.db.data.users[jid].healt = 100
+			}
+			console.log('Reseted Limit & healt')
 		});
 		const ___dirname = path.join(path.dirname(fileURLToPath(
 			import.meta.url)), './plugins')
@@ -551,7 +557,7 @@ export async function handler(chatUpdate) {
 				if (m.chat in global.db.data.chats || m.sender in global.db.data.users) {
 					let chat = global.db.data.chats[m.chat]
 					let user = global.db.data.users[m.sender]
-					if (name != 'owner-unbanchat.cjs' && chat?.isBanned)
+					if (!['owner-unbanchat.cjs', 'group-info.cjs'].includes(name) && chat?.isBanned)
 						return // Except this
 					if (name != 'owner-unbanuser.cjs' && user?.banned)
 						return

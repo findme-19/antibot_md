@@ -144,7 +144,7 @@ const {
 const connectionOptions = {
 	printQRInTerminal: true,
 	auth: state,
-	logger: pino({ level: 'trace' })
+	// logger: pino({ level: 'trace' })
 }
 
 global.conn = makeWASocket(connectionOptions)
@@ -182,7 +182,7 @@ async function connectionUpdate(update) {
 		isNewLogin, 
 		acceptPendingNotifications
 	} = update
-	if(acceptPendingNotifications) acceptPendingNotifications = false
+	if(acceptPendingNotifications) conn. acceptPendingNotifications = false
 	if (isNewLogin) conn.isInit = true
 	const code = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode
 	if (code && code !== DisconnectReason.loggedOut && conn?.ws.readyState !== CONNECTING) {
@@ -191,7 +191,6 @@ async function connectionUpdate(update) {
 	}
 	if (global.db.data == null) loadDatabase()
 }
-
 
 process.on('uncaughtException', console.error)
 // let strQuot = /(["'])(?:(?=(\\?))\2.)*?\1/
