@@ -5,7 +5,7 @@ let handler = async (m, {
 	command
 }) => {
 	let who
-	if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : false
+	if (m.isGroup) who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : false
 	else who = m.chat
 	let user = global.db.data.users[who]
 	if (!who) return m.reply(`Tag/Mention!\n\nContoh:\n${usedPrefix + command} @0`)

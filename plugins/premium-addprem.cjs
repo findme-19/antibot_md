@@ -3,13 +3,18 @@ let handler = async (m, {
 	conn,
 	text,
 	usedPrefix,
-	command
+	command,
+	args
 }) => {
 	let who
-	if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : false
-	else who = m.chat
+	if (m.isGroup) who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : args[0] ? (args[0].replace(/[@ .+-]/g, '') + '@s.whatsapp.net').trim() : ''
+	else who = args[0] ? (args[0].replace(/[@ .+-]/g, '') + '@s.whatsapp.net').trim() : m.chat
 	let user = global.db.data.users[who]
+	if (!(who in global.db.data.users)) return m.reply(`User ${who} not in database`)
 	if (!who) return m.reply(`Tag/Mention!\n\nContoh:\n${usedPrefix + command} @0 1d\n\n huruf d mewakili hari, huruf w mewakili minggu`)
+	if (!('premium' in user)) {
+		user.premium = false
+	}
 	if (user.premium) return m.reply("dia sudah jadi member premium bang\n\nmasa berakhirnya: " + new Intl.DateTimeFormat('id-ID', {
 		dateStyle: 'full',
 		timeStyle: 'long'
@@ -32,7 +37,5 @@ let handler = async (m, {
 handler.help = ['addprem [@user] <angka>']
 handler.tags = ['owner', 'premium']
 handler.command = /^(add|tambah|\+)p(rem)?$/i
-
 handler.owner = true
-
 module.exports = handler

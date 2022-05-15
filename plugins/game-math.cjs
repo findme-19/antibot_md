@@ -1,31 +1,38 @@
-global.math = global.math ? global.math : {}
 let handler = async (m, {
 	conn,
 	args,
 	usedPrefix,
 	command
 }) => {
-	const buttons = Object.keys(modes).map(v => [v, `${usedPrefix}${command} ${v}`])
-	if (args.length < 1) return conn.sendButton(m.chat, `
-  Mode: ${Object.keys(modes).join(' | ')}
-  Contoh penggunaan: ${usedPrefix}math medium
-  `.trim(), author, null, buttons, m)
+	conn.math = conn.math ? conn.math : {}
+	if (args.length < 1) throw `
+    ┌─〔 Mode 〕
+├ ${Object.keys(modes).join('\n├ ')}
+└────    
+contoh:
+${usedPrefix}math hard
+`.trim()
 	let mode = args[0].toLowerCase()
-	if (!(mode in modes)) return conn.sendButton(m.chat, `
-  Mode: ${Object.keys(modes).join(' | ')}
-  Contoh penggunaan: ${usedPrefix}math medium
-    `.trim(), author, null, buttons, m)
+	if (!(mode in modes)) throw `
+    ┌─〔 Mode 〕
+├ ${Object.keys(modes).join('\n├ ')}
+└────    
+contoh:
+${usedPrefix}math hard
+`.trim()
+	const buttons = Object.keys(modes).map(v => [v, `${usedPrefix}${command} ${v}`])
 	let id = m.chat
-	if (id in global.math) return conn.reply(m.chat, 'Masih ada soal belum terjawab di chat ini', global.math[id][0])
+	if (id in conn.math) return conn.reply(m.chat, 'Masih ada soal belum terjawab di chat ini', conn.math[id][0])
 	let math = genMath(mode)
-	global.math[id] = [
+	conn.math[id] = [
 		await conn.reply(m.chat, `Berapa hasil dari *${math.str}*?\n\nTimeout: ${(math.time / 1000).toFixed(2)} detik\nBonus Jawaban Benar: ${math.bonus} XP`, m),
 		math, 4,
-		setTimeout(() => {
-			if (global.math[id]) conn.sendButton(m.chat, `Waktu habis!\nJawabannya adalah ${math.result}`, author, null, [
+		setTimeout(async () => {
+			if (conn.math[id]) await conn.sendButton(m.chat, `Waktu habis!\nJawabannya adalah ${math.result}`, author, null, [
 				['again', `${usedPrefix}${command} ${math.mode}`], ...buttons
-			], global.math[id][0])
-			delete global.math[id]
+			], conn.math[id][0])
+
+			delete conn.math[id]
 		}, math.time)
 	]
 }
@@ -33,6 +40,7 @@ handler.help = ['math <mode>']
 handler.tags = ['game']
 handler.command = /^math/i
 
+module.exports = handler
 
 let modes = {
 	noob: [-3, 3, -3, 3, '+-', 18000, 1000],
@@ -77,7 +85,3 @@ function randomInt(from, to) {
 function pickRandom(list) {
 	return list[Math.floor(Math.random() * list.length)]
 }
-
-handler.modes = modes
-
-module.exports = handler

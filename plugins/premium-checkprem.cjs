@@ -6,6 +6,7 @@ let handler = async (m, {
 }) => {
 	let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 	let user = global.db.data.users[who]
+	if (!(who in global.db.data.users)) return m.reply(`User ${who} not in database`)
 	if (!user.premium) return conn.reply(m.chat, '@' + who.split('@')[0] + " bukan member premium", false, {
 		mentions: [who],
 		quoted: m

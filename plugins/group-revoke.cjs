@@ -1,6 +1,11 @@
-let handler = async (m, { conn, text, usedPrefix, command }) => {
-const code = await conn.groupRevokeInvite(m.chat)
-    conn.reply(m.chat, "New group code: https://chat.whatsapp.com/" + code, m)
+let handler = async (m, {
+	conn,
+	text,
+	usedPrefix,
+	command
+}) => {
+	const code = await conn.groupRevokeInvite(m.chat)
+	conn.reply(m.chat, "New group code: https://chat.whatsapp.com/" + code, m)
 }
 handler.help = ['revoke']
 handler.tags = ['group']
