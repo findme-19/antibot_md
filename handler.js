@@ -52,6 +52,8 @@ export async function handler(chatUpdate) {
 					user.limit = 10
 				if (!isNumber(user.lastclaim))
 					user.lastclaim = 0
+				if (!isNumber(user.as))
+					user.as = 0
 				if (!('registered' in user))
 					user.registered = false
 				if (!user.registered) {
@@ -181,6 +183,57 @@ export async function handler(chatUpdate) {
 					user.lastweekly = 0
 				if (!isNumber(user.lastmonthly))
 					user.lastmonthly = 0
+				
+//database berburu
+				if (!isNumber(user.paus))
+					user.paus = 0
+				if (!isNumber(user.kepiting))
+					user.kepiting = 0
+				if (!isNumber(user.gurita))
+					user.gurita = 0
+				if (!isNumber(user.cumi))
+					user.cumi = 0
+				if (!isNumber(user.buntal))
+					user.buntal = 0
+				if (!isNumber(user.dory))
+					user.dory = 0
+				if (!isNumber(user.lumba))
+					user.lumba = 0
+				if (!isNumber(user.lobster))
+					user.lobster = 0
+				if (!isNumber(user.hiu))
+					user.hiu = 0
+				if (!isNumber(user.udang))
+					user.udang = 0
+				if (!isNumber(user.ikan))
+					user.ikan = 0
+				if (!isNumber(user.orca))
+					user.orca = 0
+
+				if (!isNumber(user.banteng))
+					user.banteng = 0
+				if (!isNumber(user.harimau))
+					user.harimau = 0
+				if (!isNumber(user.gajah))
+					user.gajah = 0
+				if (!isNumber(user.kambing))
+					user.kambing = 0
+				if (!isNumber(user.panda))
+					user.panda = 0
+				if (!isNumber(user.buaya))
+					user.buaya = 0
+				if (!isNumber(user.kerbau))
+					user.kerbau = 0
+				if (!isNumber(user.sapi))
+					user.sapi = 0
+				if (!isNumber(user.monyet))
+					user.monyet = 0
+				if (!isNumber(user.babihutan))
+					user.babihutan = 0
+				if (!isNumber(user.babi))
+					user.babi = 0
+				if (!isNumber(user.ayam))
+					user.ayam = 0
 			} else
 				global.db.data.users[m.sender] = {
 					exp: 0,
@@ -197,6 +250,32 @@ export async function handler(chatUpdate) {
 					level: 0,
 					role: 'Beginner',
 					autolevelup: true,
+
+					as: 0,
+					paus: 0,
+					kepiting: 0,
+					gurita: 0,
+					cumi: 0,
+					buntal: 0,
+					dory: 0,
+					lumba: 0,
+					lobster: 0,
+					hiu: 0,
+					udang: 0,
+					ikan: 0,
+					orca: 0,
+					banteng: 0,
+					harimau: 0,
+					gajah: 0,
+					kambing: 0,
+					panda: 0,
+					buaya: 0,
+					kerbau: 0,
+					sapi: 0,
+					monyet: 0,
+					babihutan: 0,
+					babi: 0,
+					ayam: 0,
 
 					money: 0,
 					health: 100,
@@ -448,8 +527,8 @@ export async function handler(chatUpdate) {
 		schedule.scheduleJob(limit, () => {
 			let useres = Object.keys(global.db.data.users)
 			for (let jid of useres) {
-			global.db.data.users[jid].limit = 10
-			global.db.data.users[jid].healt = 100
+				global.db.data.users[jid].limit = 10
+				global.db.data.users[jid].healt = 100
 			}
 			console.log('Reseted Limit & healt')
 		});

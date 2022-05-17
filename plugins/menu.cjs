@@ -37,7 +37,7 @@ let handler = async (m, {
 }) => {
 	let tags
 	let teks = `${args[0]}`.toLowerCase()
-	let arrayMenu = ['all', 'game', 'rpg', 'xp', 'sticker', 'kerang', 'primbon', 'group', 'premium', 'internet', 'anonymous', 'downloader', 'tools', 'database', 'owner', 'user', 'noktg']
+	let arrayMenu = ['all', 'game', 'rpg', 'xp', 'sticker', 'kerang', 'primbon', 'group', 'premium', 'internet', 'anonymous', 'downloader', 'tools', 'database', 'owner', 'jadian', 'noktg']
 	if (!arrayMenu.includes(teks)) teks = '404'
 	if (teks == 'all') tags = {
 		'main': 'Main',
@@ -66,7 +66,8 @@ let handler = async (m, {
 	}
 	if (teks == 'game') tags = {
 		'game': 'Games',
-		'fun': 'Fun'
+		'fun': 'Fun', 
+		'berburu': 'Berburu'
 	}
 	if (teks == 'rpg') tags = {
 		'rpg': 'RPG Games'
@@ -111,8 +112,9 @@ let handler = async (m, {
 		'owner': 'Owner',
 		'advanced': 'Advanced'
 	}
-	if (teks == 'user') tags = {
-		'user': 'User'
+	if (teks == 'jadian') tags = {
+		'user': 'User', 
+		'jadian': 'Jadian'
 	}
 	if (teks == 'noktg') tags = {
 		'info': 'Info',
@@ -183,9 +185,9 @@ let handler = async (m, {
 		})
 		if (teks == '404') {
 			const sendMsg = await conn.sendMessage(m.chat, {
-				text: author,
-				footer: time + ", " + week,
-				title: ucapan() + name,
+				text: 'Sekarang Jam ' + time,
+				footer: author,
+				title: '```'+ ucapan() + name + '```\n*' + week + ' - ' + date + '*\n',
 				buttonText: "Click",
 				sections: [{
 					title: "List Featured",
@@ -250,8 +252,8 @@ let handler = async (m, {
 							rowId: _p + `? owner`
 						},
 						{
-							title: "Users",
-							rowId: _p + `? user`
+							title: "Jadian",
+							rowId: _p + `? jadian`
 						},
 						{
 							title: "Tanpa Kategori",

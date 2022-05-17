@@ -191,7 +191,6 @@ async function connectionUpdate(update) {
 	}
 	if (global.db.data == null) loadDatabase()
 }
-
 process.on('uncaughtException', console.error)
 // let strQuot = /(["'])(?:(?=(\\?))\2.)*?\1/
 
